@@ -1,0 +1,72 @@
+{
+  "name": "three-js-360-panorama",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "./src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/three-js-360-panorama"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "three-js-360-panorama:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "three-js-360-panorama:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "three-js-360-panorama:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "three-js-360-panorama:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "three-js-360-panorama:build:development"
+        },
+        "production": {
+          "buildTarget": "three-js-360-panorama:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/three-js-360-panorama"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "coverage/three-js-360-panorama"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
